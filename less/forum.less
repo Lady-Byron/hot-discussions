@@ -1,20 +1,106 @@
-i.fas.fa-caret-right.hotdiscIcon {
-  margin-right: 5px;
-  color: @primary-color;
-}
-/*.hotDiscussions-widget{
-  .AfruxWidgets-Widget-content {
-    background: #f1dada;
+.hotDiscussions-widget {
+  // 标题部分样式通常由 afrux-forum-widgets-core 处理，
+  // 但我们可以微调以匹配你的预览风格
+  .Widget-title {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--heading-color); // 适配深色模式
+    margin-bottom: 10px;
+    
+    // 去除强制的红色，继承文字颜色
+    .icon {
+      color: inherit;
+      margin-right: 6px;
+    }
   }
-}*/
-ul.hotDisc.fa-ul {
-  margin: 0px 0px 0px 0px;
-  color: @primary-color;
-  word-wrap: break-word;
-}
-i.icon.fab.fa-hotjar.hotwdg {
-  color: red;
-}
-li.hotDiscWidget {
-  padding: 1px;
+
+  .hotDiscussion-content {
+    // 列表容器
+    .hotDisc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px; // 使用 gap 替代 margin-bottom，更现代的写法
+    }
+
+    .hotDisc-item {
+      // 列表项容器
+    }
+
+    // 链接主体
+    .hotDisc-link {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: var(--border-radius); // 使用 Flarum 全局圆角设置
+      text-decoration: none;
+      color: var(--text-color); // 正文颜色
+      transition: all 0.2s ease;
+      cursor: pointer;
+      
+      // 默认背景透明，或者使用 Flarum 控件背景
+      background: transparent; 
+
+      // 悬停效果
+      &:hover {
+        background-color: var(--secondary-color); // Flarum 标准的悬停背景色(通常是浅灰)
+        color: var(--primary-color); // 悬停变主色
+
+        // 悬停时圆点的变化
+        .hotDisc-bullet {
+          background-color: var(--primary-color);
+          transform: scale(1.2);
+        }
+
+        // 悬停时统计数据的变化
+        .hotDisc-stats {
+          color: var(--primary-color);
+          opacity: 1;
+        }
+      }
+    }
+
+    // 装饰性圆点
+    .hotDisc-bullet {
+      width: 4px;
+      height: 4px;
+      background-color: var(--muted-color); // 默认灰色
+      border-radius: 50%;
+      margin-right: 12px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    // 标题文字
+    .hotDisc-title {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600; // Flarum 字体通常稍微粗一点更清晰
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 10px;
+      min-width: 0; // Flexbox 下防止文字溢出的关键
+    }
+
+    // 右侧统计数据
+    .hotDisc-stats {
+      font-size: 12px;
+      color: var(--muted-color);
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+
+      // 调整图标大小以对齐文字
+      .fa, .fas, .fab {
+        font-size: 11px;
+      }
+    }
+  }
 }

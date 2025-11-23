@@ -1,11 +1,21 @@
 {
-  "extends": "flarum-tsconfig",
-  "include": ["src/**/*"],
   "compilerOptions": {
-    "declarationDir": "./dist-typings",
-    "baseUrl": ".",
-    "paths": {
-      "flarum/*": ["../vendor/flarum/core/js/dist-typings/*"]
-    }
-  }
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "m",
+    "jsxFragmentFactory": "m.fragment",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "sourceMap": true
+  },
+  "include": [
+    "forum.ts",
+    "admin.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }
